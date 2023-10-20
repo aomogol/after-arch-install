@@ -1,0 +1,99 @@
+#
+# ~/.bashrc
+#
+
+############################################## alias from AOM
+# mirrorlist
+alias mraom="sudo reflector --latest 10 --fastest 10 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist"
+alias mir="sudo reflector --verbose --latest 10 --fastest 10 --protocol http,https --sort rate --save /etc/pacman.d/mirrorlist"
+## yay alias
+alias yup="yay -Syyu --noconfirm"
+alias u="yay -Syyu --noconfirm"
+alias uu="yay -Syyu"
+alias ins="yay -S --needed --noconfirm"
+alias pp='paru -Syyu --noconfirm'
+
+#readable output
+alias df='df -h'
+alias ds="du -hs *"
+alias ip='ip --color=auto'
+alias ns='nslookup -type=any'
+
+#Cleanup orphaned packages
+alias cls='sudo pacman -Rns $(pacman -Qtdq)'
+
+# get error messages from journalctl
+alias hata="journalctl -p 3 -xb"
+alias err='journalctl -p 3 -xb'
+
+## hblock disable etmek için
+alias dhblock='hblock -S none -D none'
+
+#iso and version used to install ArcoLinux
+alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
+
+#quickly kill conkies
+alias kc='killall conky'
+
+#hardware info --short
+alias hw="hwinfo --short"
+
+#switch between bash and zsh
+alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
+alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
+
+#free
+alias free="free -mt"
+
+#pacman unlock
+alias unlock="sudo rm /var/lib/pacman/db.lck"
+alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
+
+alias np='sudo nano /etc/pacman.conf'
+alias nm='sudo nano /etc/pacman.d/mirrorlist'
+
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+## alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+# alias config='/usr/bin/git --git-dir=/home/aom/dotfiles/ --work-tree=/home/aom'
+
+#fix obvious typo's
+alias cd..='cd ..'
+alias udpate='sudo pacman -Syu'
+
+
+function path(){
+    old=$IFS
+    IFS=:
+    printf "%s\n" $PATH
+    IFS=$old
+}
+
+############################################## alias from AOM
+
+alias n='neofetch'
+alias cpu="sudo auto-cpufreq --stats"
+alias gcache="git config credential.helper store"
+
+#### https://engineeringfordatascience.com/posts/configure_terminal_for_data_science_with_oh_my_zsh/
+# python
+alias python=python3
+
+# git
+alias gs="git status"
+
+# map exa commands to normal ls commands
+alias le="exa -l -g --icons"
+alias les="exa --icons"
+alias lt="exa --tree --icons -a -I '.git|__pycache__|.mypy_cache|.ipynb_checkpoints'"
+
+# show file previews for fzf using bat
+alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+
+alias po="sudo netstat -tulpn | grep LISTEN"
+alias po2="sudo ss -tulpn | grep LISTEN"
+alias sysctl="systemctl list-unit-files"
+alias sysfail="systemctl --state=failed --all"
