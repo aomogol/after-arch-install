@@ -3,7 +3,13 @@
 #######################################################
 # Author    : Ahmet Önder Moğol
 #######################################################
+
+sudo pacman -S --needed --noconfirm base-devel git wget curl
+
 echo
+list=(
+yay-bin
+)
 func_install() {
     if pacman -Qi $1 &> /dev/null; then
         tput setaf 2
@@ -21,9 +27,6 @@ func_install() {
 		rm -r yay-bin
     fi
 }
-list=(
-yay-bin
-)
 count=0
 for name in "${list[@]}" ; do
     count=$[count+1]
@@ -31,27 +34,33 @@ for name in "${list[@]}" ; do
     func_install $name
 done
 echo
-yay -Syyu --noconfirm
+	yay -Syyu --noconfirm # Update Arch
 tput setaf 6
 echo "################### Yay-bin Install - Done"
 tput sgr0
 echo
+
 echo "########## /etc/pacman.conf düzenleme color ve paralel download"
 # sudo nano /etc/pacman.conf
 echo "Pacman parallel downloads set to 20"
-FIND="#ParallelDownloads = 5"
-REPLACE="ParallelDownloads = 20"
-sudo sed -i "s/$FIND/$REPLACE/g" /etc/pacman.conf
+	FIND="#ParallelDownloads = 5"
+	REPLACE="ParallelDownloads = 20"
+	sudo sed -i "s/$FIND/$REPLACE/g" /etc/pacman.conf
 
 echo "Color"
-FIND="#Color"
-REPLACE="Color"
-sudo sed -i "s/$FIND/$REPLACE/g" /etc/pacman.conf
+	FIND="#Color"
+	REPLACE="Color"
+	sudo sed -i "s/$FIND/$REPLACE/g" /etc/pacman.conf
 
-echo "################### package tools install "
+echo "################### Linux "
+yay -S --needed --noconfirm linux-headers 
+yay -S --needed --noconfirm dkms
+
+echo "################### package tools  "
 yay -S --needed --noconfirm paru-bin
 yay -S --needed --noconfirm pkgcacheclean
 yay -S --needed --noconfirm pacman-contrib
+yay -S --needed --noconfirm reflector
 
 echo "################### Mirror List yenileme"
 sudo reflector --latest 10  --fastest 10 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist
@@ -61,12 +70,9 @@ echo "################### # user group atamaları / wheell"
 sudo usermod -aG wheel $USER
 sudo usermod -aG users,power,lp,adm,audio,video,optical,storage,network,rfkill $USER
 
-echo "################### #bluetooth enable"
-sudo systemctl enable  bluetooth --now
-
-echo "################### ilave disk ler için mount point"
-# sudo mkdir /mnt/data1tb
-# sudo mkdir /mnt/win
+#echo "################### ilave disk ler için mount point"
+# sudo mkdir /mnt/
+# sudo mkdir /mnt/
 
 echo "################### KDE applications "
 yay -S --needed --noconfirm kdialog
@@ -74,11 +80,13 @@ yay -S --needed --noconfirm kdegraphics-thumbnailers # Thumbnailers for various 
 yay -S --needed --noconfirm kdenetwork-filesharing  #Properties dialog plugin to share a directory with the local network
 yay -S --needed --noconfirm kcron #  Configure and schedule tasks
 yay -S --needed --noconfirm filelight kdf # View disk usage information
+yay -S --needed --noconfirm ocs-url # kde store
+yay -S --needed --noconfirm konsave
 
-echo "################### XORG applications "
+#echo "################### XORG applications "
 # yay -S --needed --noconfirm xorg-server xorg-xinit xorg-xrandr xorg-xfontsel xorg-xlsfonts xorg-xkill xorg-xinput xorg-xwininfo
 
-echo "################### bash utility"
+echo "################### bash utilities"
 yay -S --needed --noconfirm bash-completion
 yay -S --needed --noconfirm zsh
 yay -S --needed --noconfirm oh-my-zsh-git
@@ -87,11 +95,13 @@ yay -S --needed --noconfirm zsh-syntax-highlighting
 yay -S --needed --noconfirm zsh-autosuggestions
 
 echo "################### disk utility"
-yay -S --needed --noconfirm partitionmanager gparted
-yay -S --needed --noconfirm os-prober
-yay -S --needed --noconfirm grub-customizer update-grub
-yay -S --needed --noconfirm etcher-bin gnome-firmware
-
+yay -S --needed --noconfirm partitionmanager 
+yay -S --needed --noconfirm gparted
+yay -S --needed --noconfirm os-prober #detect other OSes
+yay -S --needed --noconfirm grub-customizer
+yay -S --needed --noconfirm update-grub
+yay -S --needed --noconfirm etcher-bin 
+yay -S --needed --noconfirm gnome-firmware
 
 echo "################### Backup utility"
 yay -S --needed --noconfirm timeshift-bin
@@ -102,10 +112,10 @@ yay -S --needed --noconfirm dosfstools fatresize f2fs-tools
 yay -S --needed --noconfirm exfat-utils nilfs-utils udftools mtools
 
 echo "################### yardımcı programlar "
-yay -S --needed --noconfirm neofetch reflector
+yay -S --needed --noconfirm neofetch 
 yay -S --needed --noconfirm archiso
 yay -S --needed --noconfirm downgrade
-
+yay -S --needed --noconfirm caffeine-ng
 
 echo "################### fonts"
 yay -S --needed --noconfirm ttf-meslo-nerd-font-powerlevel10k
@@ -115,7 +125,19 @@ yay -S --needed --noconfirm awesome-terminal-fonts
 yay -S --needed --noconfirm ttf-ubuntu-font-family
 yay -S --needed --noconfirm ttf-hack
 yay -S --needed --noconfirm ttf-roboto
-#yay -S --needed --noconfirm ttf-fantasque-sans-mono ttf-iosevka-nerd ttf-material-design-iconic-font ttf-sourcecodepro-nerd ttf-hack ttf-roboto   ttf-bitstream-vera ttf-dejavu ttf-droid ttf-inconsolata ttf-liberation ttf-roboto-mono noto-fonts adobe-source-sans-fonts
+yay -S --needed --noconfirm adobe-source-sans-fonts
+#yay -S --needed --noconfirm ttf-fantasque-sans-mono 
+#yay -S --needed --noconfirm ttf-iosevka-nerd 
+#yay -S --needed --noconfirm ttf-material-design-iconic-font 
+#yay -S --needed --noconfirm ttf-sourcecodepro-nerd 
+#yay -S --needed --noconfirm ttf-hack ttf-roboto   
+#yay -S --needed --noconfirm ttf-bitstream-vera 
+#yay -S --needed --noconfirm ttf-dejavu 
+#yay -S --needed --noconfirm ttf-droid 
+#yay -S --needed --noconfirm ttf-inconsolata 
+#yay -S --needed --noconfirm ttf-liberation 
+#yay -S --needed --noconfirm ttf-roboto-mono 
+#yay -S --needed --noconfirm noto-fonts 
 
 echo "################### network tools"
 yay -S --needed --noconfirm kdeconnect
@@ -123,11 +145,13 @@ yay -S --needed --noconfirm gvfs
 yay -S --needed --noconfirm gvfs-smb
 yay -S --needed --noconfirm samba
 yay -S --needed --noconfirm avahi
-sudo systemctl enable avahi-daemon.service
 yay -S --needed --noconfirm traceroute
 yay -S --needed --noconfirm warpinator
 yay -S --needed --noconfirm nss-mdns
+yay -S --needed --noconfirm networkmanager-openvpn  
 
+
+sudo systemctl enable avahi-daemon.service
 
 echo "################### file manager- file finder"
 yay -S --needed --noconfirm dolphin dolphin-plugins ffmpegthumbs
@@ -138,10 +162,18 @@ yay -S --needed --noconfirm the_silver_searcher
 yay -S --needed --noconfirm hardcode-fixer-git  # Fixes Hardcoded Icons
 yay -S --needed --noconfirm bleachbit
 yay -S --needed --noconfirm fd ripgrep
-yay -S --needed --noconfirm tldr procs
+yay -S --needed --noconfirm tldr 
+yay -S --needed --noconfirm procs # replacement for ps 
 yay -S --needed --noconfirm inxi
 ### czkawka duplicate finder
 yay -S --needed --noconfirm czkawka-gui-bin
+yay -S --needed --noconfirm autojump  # A faster way to navigate your filesystem from the command line
+#>>>  Bash users will need to add the following to ~/.bashrc:
+#     [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
+#
+#     Fish users will need to add the following to ~/.config/fish/config.fish:
+#     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
+#############################
 
 if [ ! -f /usr/bin/duf ]; then
   yay -S --needed --noconfirm duf
@@ -162,40 +194,47 @@ yay -S --needed --noconfirm sane simple-scan
 yay -S --needed --noconfirm hplip
 sudo systemctl enable --now cups.service
 
+echo "################### #bluetooth enable"
+yay -S --needed --noconfirm bluez
+yay -S --needed --noconfirm bluez-utils 
+yay -S --needed --noconfirm bluedevil # KDE's Bluetooth tool.
+yay -S --needed --noconfirm blueman #  A full featured Bluetooth manager.
+sudo systemctl enable bluetooth --now
+
 echo "################### WEB browser, ftp, ssh"
 yay -S --needed --noconfirm chromium
 yay -S --needed --noconfirm firefox
 yay -S --needed --noconfirm google-chrome
 yay -S --needed --noconfirm brave-bin
 yay -S --needed --noconfirm thorium-browser-bin
+#yay -S --needed --noconfirm tor torbrowser-launcher
 #yay -S --needed --noconfirm opera
 #yay -S --needed --noconfirm vivaldi vivaldi-ffmpeg-codecs vivaldi-widevine
-## FTP
-yay -S --needed --noconfirm filezilla
-## Torrent
-yay -S --needed --noconfirm qbittorrent
-## SSH client
-yay -S --needed --noconfirm putty
+yay -S --needed --noconfirm filezilla ## FTP
+yay -S --needed --noconfirm qbittorrent ## Torrent
+yay -S --needed --noconfirm putty ## SSH tool
 yay -S --needed --noconfirm sshfs #Filesystem client based on SSH.
 
 echo "################### Office - Code editor - Editorvs."
 yay -S --needed --noconfirm okular
 yay -S --needed --noconfirm sublime-text-4
 yay -S --needed --noconfirm visual-studio-code-bin
-yay -S --needed --noconfirm meld gedit
-#### vscodium-bin
-## e-Mail
-yay -S --needed --noconfirm thunderbird
-###########  Office
+yay -S --needed --noconfirm meld 
+yay -S --needed --noconfirm gedit
+yay -S --needed --noconfirm thunderbird ## e-Mail
+####  Office
 yay -S --needed --noconfirm libreoffice aspell-en libmythes mythes-en languagetool
 yay -S --needed --noconfirm onlyoffice
 
 echo "###################  Remote desktop tools"
-yay -S --needed --noconfirm remmina freerdp remmina-plugin-rdesktop
+yay -S --needed --noconfirm remmina remmina-plugin-rdesktop
+yay -S --needed --noconfirm freerdp
 yay -S --needed --noconfirm spice-gtk libvncserver
 
-echo "###################  Yardımcı uygulamalar"
-yay -S --needed --noconfirm caffeine-ng
+echo "################## video & Photo & Music"
+yay -S --needed --noconfirm gwenview # image viewer
+yay -S --needed --noconfirm obs-studio 
+yay -S --needed --noconfirm kdenlive
 ## Muzik
 yay -S --needed --noconfirm spotify
 ### Video player
@@ -205,22 +244,14 @@ yay -S --needed --noconfirm a52dec faac faad2 flac jasper lame
 yay -S --needed --noconfirm libdca libdv libmad libmpeg2 libtheora
 yay -S --needed --noconfirm libvorbis libxv wavpack x264 xvidcore
 ## ip tv için
-yay -S --needed --noconfirm aribb24
-#qmplay2
+yay -S --needed --noconfirm aribb24 #qmplay2
 #### screeen shot
 yay -S --needed --noconfirm spectacle
-   # scrot
 ## Ekran kaydetmek için
 yay -S --needed --noconfirm simplescreenrecorder
-# kde store app
-yay -S --needed --noconfirm ocs-url
 yay -S --needed --noconfirm svgpart #A KPart for viewing SVGs
-yay -S --needed --noconfirm gwenview # image viewer
 
-echo "################## Yayın yapma ve video editing"
-yay -S --needed --noconfirm obs-studio kdenlive
-
-echo "################### ## Konferans uygulamaları"
+echo "################### ## Video Konferans & IM "
 yay -S --needed --noconfirm zoom
 ## IM
 yay -S --needed --noconfirm discord
@@ -231,9 +262,10 @@ yay -S --needed --noconfirm github-cli
 yay -S --needed --noconfirm github-desktop-bin
 yay -S --needed --noconfirm go  
 yay -S --needed --noconfirm clang cmake
-# python apps
+# python 
 yay -S --needed --noconfirm python python-setuptools
 yay -S --needed --noconfirm python-pip python-pipx
+
 #yay -S --needed --noconfirm nodejs npm
 #yay -S --needed --noconfirm ninja pkgconf gtk3
 
@@ -312,7 +344,6 @@ yay -S --needed --noconfirm tlp
 sudo systemctl enable tlp.service
 
 echo "################### Personal settings to install - "
-
 installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
 	echo "Installing all shell files"
 	echo
@@ -329,22 +360,17 @@ installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
 sudo usermod -s /bin/zsh $USER
 
 echo
-echo "################################################################"
-echo "################### Personal settings to install - any OS"
-echo "################################################################"
-echo
+echo "################### Personal settings to install - "
 echo "Sublime text settings"
 echo
 [ -d $HOME"/.config/sublime-text/Packages/User" ] || mkdir -p $HOME"/.config/sublime-text/Packages/User"
 cp  $installed_dir/settings/sublimetext/Preferences.sublime-settings $HOME/.config/sublime-text/Packages/User/Preferences.sublime-settings
 echo
 
-
 echo "################### Graphics drive & tools- "
 # Graphics Drivers find and install
 if lspci | grep -E "NVIDIA|GeForce"; then
-	yay -S --needed --noconfirm linux-headers dkms
-    yay -S --needed --noconfirm nvidia-dkms
+	yay -S --needed --noconfirm nvidia-dkms
     yay -S --needed --noconfirm nvidia-settings nvidia-utils lib32-nvidia-utils
     yay -S --needed --noconfirm envycontrol
 elif lspci | grep -E "Radeon"; then
@@ -360,6 +386,9 @@ echo -e "\nDone!\n"
 
 echo "################### firmware / Hardware "
 yay -S --noconfirm --needed upd72020x-fw wd719x-firmware aic94xx-firmware lshw hw-probe hwinfo linux-firmware-qlogic
+
+echo "################### Logitech MX Mouse"
+yay -S --noconfirm --needed logiops
 
 echo "################################################################"
 echo "Enable fstrim timer"
