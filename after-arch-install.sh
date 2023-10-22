@@ -96,7 +96,7 @@ yay -S --needed --noconfirm zsh-autosuggestions
 
 echo "################### disk utility"
 yay -S --needed --noconfirm partitionmanager 
-yay -S --needed --noconfirm gparted
+yay -S --needed --noconfirm gparted gpart
 yay -S --needed --noconfirm os-prober #detect other OSes
 yay -S --needed --noconfirm grub-customizer
 yay -S --needed --noconfirm update-grub
