@@ -102,6 +102,9 @@ yay -S --needed --noconfirm grub-customizer
 yay -S --needed --noconfirm update-grub
 yay -S --needed --noconfirm etcher-bin 
 yay -S --needed --noconfirm gnome-firmware
+yay -S --needed --noconfirm gnome-disk-utility
+yay -S --needed --noconfirm plasma-disks
+#yay -S --needed --noconfirm 
 
 echo "################### Backup utility"
 yay -S --needed --noconfirm timeshift-bin
@@ -156,7 +159,7 @@ sudo systemctl enable avahi-daemon.service
 echo "################### file manager- file finder"
 yay -S --needed --noconfirm dolphin dolphin-plugins ffmpegthumbs
 yay -S --needed --noconfirm ncdu
-yay -S --needed --noconfirm rsync
+yay -S --needed --noconfirm rsync rlone fuse3  # fuse3 :for rclone mount
 yay -S --needed --noconfirm the_platinum_searcher-bin
 yay -S --needed --noconfirm the_silver_searcher
 yay -S --needed --noconfirm hardcode-fixer-git  # Fixes Hardcoded Icons
