@@ -154,6 +154,7 @@ yay -S --needed --noconfirm traceroute
 yay -S --needed --noconfirm warpinator
 yay -S --needed --noconfirm nss-mdns
 yay -S --needed --noconfirm networkmanager-openvpn  
+yay -S --needed --noconfirm ipscan-bin
 
 
 sudo systemctl enable avahi-daemon.service
@@ -167,9 +168,11 @@ yay -S --needed --noconfirm the_silver_searcher
 yay -S --needed --noconfirm hardcode-fixer-git  # Fixes Hardcoded Icons
 yay -S --needed --noconfirm bleachbit
 yay -S --needed --noconfirm fd ripgrep
-yay -S --needed --noconfirm tldr 
+yay -S --needed --noconfirm tldr
+yay -S --needed --noconfirm trash-cli 
 yay -S --needed --noconfirm procs # replacement for ps 
 yay -S --needed --noconfirm inxi
+yay -S --needed --noconfirm egrep fgrep
 ### czkawka duplicate finder
 yay -S --needed --noconfirm czkawka-gui-bin
 yay -S --needed --noconfirm autojump  # A faster way to navigate your filesystem from the command line
@@ -233,7 +236,7 @@ yay -S --needed --noconfirm onlyoffice
 
 echo "###################  Remote desktop tools"
 yay -S --needed --noconfirm remmina remmina-plugin-rdesktop
-yay -S --needed --noconfirm freerdp
+yay -S --needed --noconfirm freerdp xrdp
 yay -S --needed --noconfirm spice-gtk libvncserver
 
 echo "################## video & Photo & Music"
