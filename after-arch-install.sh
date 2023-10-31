@@ -109,6 +109,8 @@ yay -S --needed --noconfirm plasma-disks
 echo "################### Backup utility"
 yay -S --needed --noconfirm timeshift-bin
 
+yay -S --needed --noconfirm borg borgmatic vorta
+
 echo "################### file system tools "
 yay -S --needed --noconfirm ntfs-3g xfsprogs jfsutils reiserfsprogs
 yay -S --needed --noconfirm dosfstools fatresize f2fs-tools
