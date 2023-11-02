@@ -83,6 +83,9 @@ yay -S --needed --noconfirm filelight kdf # View disk usage information
 yay -S --needed --noconfirm ocs-url # kde store
 yay -S --needed --noconfirm konsave
 
+## Wayland için gerekenler
+yay -S --needed --noconfirm xorg-xwayland xorg-xlsclients qt5-wayland glfw-wayland plasma-wayland-session
+
 #echo "################### XORG applications "
 # yay -S --needed --noconfirm xorg-server xorg-xinit xorg-xrandr xorg-xfontsel xorg-xlsfonts xorg-xkill xorg-xinput xorg-xwininfo
 
@@ -286,7 +289,10 @@ yay -S --needed --noconfirm jre11-openjdk jdk11-openjdk jre11-openjdk-headless
 #archlinux-java status
 #sudo archlinux-java set java-8-openjdk
 echo "################### Docker"
+# Docker Desktop needs for non-Gnome Desktop environments, gnome-terminal must be installed
+yay -S --needed --noconfirm gnome-terminal
 yay -S --needed --noconfirm docker
+#yay -S --needed --noconfirm docker-desktop
 sudo groupadd docker
 #newgrp docker
 sudo usermod -aG docker $USER
