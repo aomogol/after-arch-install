@@ -186,6 +186,9 @@ yay -S --needed --noconfirm autojump  # A faster way to navigate your filesystem
 #     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 #############################
 
+# CD / DVD burn 
+yay -S --needed k3b cdrtools dvd+rw-tools vcdimager emovix cdrdao cdparanoia
+
 if [ ! -f /usr/bin/duf ]; then
   yay -S --needed --noconfirm duf
 fi
