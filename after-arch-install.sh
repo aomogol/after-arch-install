@@ -175,16 +175,19 @@ yay -S --needed --noconfirm tldr
 yay -S --needed --noconfirm trash-cli 
 yay -S --needed --noconfirm procs # replacement for ps 
 yay -S --needed --noconfirm inxi
+yay -S --needed --noconfirm bat # cat 
 yay -S --needed --noconfirm egrep fgrep
 ### czkawka duplicate finder
 yay -S --needed --noconfirm czkawka-gui-bin
-yay -S --needed --noconfirm autojump  # A faster way to navigate your filesystem from the command line
+
+# A faster way to navigate your filesystem from the command line
 #>>>  Bash users will need to add the following to ~/.bashrc:
 #     [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 #
 #     Fish users will need to add the following to ~/.config/fish/config.fish:
 #     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 #############################
+yay -S --needed --noconfirm autojump  
 
 # CD / DVD burn 
 yay -S --needed k3b cdrtools dvd+rw-tools vcdimager emovix cdrdao cdparanoia
