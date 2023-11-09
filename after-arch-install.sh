@@ -158,6 +158,7 @@ yay -S --needed --noconfirm warpinator
 yay -S --needed --noconfirm nss-mdns
 yay -S --needed --noconfirm networkmanager-openvpn  
 yay -S --needed --noconfirm ipscan-bin
+yay -S --needed --noconfirm bind 
 
 
 sudo systemctl enable avahi-daemon.service
