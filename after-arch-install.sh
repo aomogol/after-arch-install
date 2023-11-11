@@ -120,7 +120,7 @@ echo "################### file system tools "
 yay -S --needed --noconfirm ntfs-3g xfsprogs jfsutils reiserfsprogs
 yay -S --needed --noconfirm dosfstools fatresize f2fs-tools
 yay -S --needed --noconfirm exfat-utils nilfs-utils udftools mtools
-yay -S --needed --noconfirm ventoy
+yay -S --needed --noconfirm ventoy-bin
 
 echo "################### yardımcı programlar "
 yay -S --needed --noconfirm neofetch 
