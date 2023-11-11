@@ -4,6 +4,8 @@
 # Author    : Ahmet Önder Moğol
 #######################################################
 
+# yay -S --needed --noconfirm 
+
 sudo pacman -S --needed --noconfirm base-devel git wget curl
 
 echo
@@ -118,6 +120,7 @@ echo "################### file system tools "
 yay -S --needed --noconfirm ntfs-3g xfsprogs jfsutils reiserfsprogs
 yay -S --needed --noconfirm dosfstools fatresize f2fs-tools
 yay -S --needed --noconfirm exfat-utils nilfs-utils udftools mtools
+yay -S --needed --noconfirm ventoy
 
 echo "################### yardımcı programlar "
 yay -S --needed --noconfirm neofetch 
