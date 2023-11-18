@@ -52,14 +52,6 @@ alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
 alias np='sudo nano /etc/pacman.conf'
 alias nm='sudo nano /etc/pacman.d/mirrorlist'
 
-## Colorize the grep command output for ease of use (good for log files)##
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-
-## alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-# alias config='/usr/bin/git --git-dir=/home/aom/dotfiles/ --work-tree=/home/aom'
-
 #fix obvious typo's
 alias cd..='cd ..'
 alias udpate='sudo pacman -Syu'

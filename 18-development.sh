@@ -22,6 +22,7 @@ python
 python-setuptools
 python-pip 
 python-pipx
+rust
 )
 
 func_install() {

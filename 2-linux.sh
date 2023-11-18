@@ -48,4 +48,19 @@ for name in "${list[@]}" ; do
 	func_install $name
 done
 
-
+#
+# determine processor type and install microcode
+# 
+proc_type=$(lscpu | awk '/Vendor ID:/ {print $3}')
+case "$proc_type" in
+	GenuineIntel)
+		print "Installing Intel microcode"
+		yay -S --needed --noconfirm intel-ucode
+		proc_ucode=intel-ucode.img
+		;;
+	AuthenticAMD)
+		print "Installing AMD microcode"
+		yay -S --needed --noconfirm amd-ucode
+		proc_ucode=amd-ucode.img
+		;;
+esac	
