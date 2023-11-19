@@ -55,6 +55,12 @@ echo "Color"
 
 
 echo
+tput setaf 3
+echo "################################################################"
+echo "################### system update " 
+echo "################################################################"
+tput sgr0
+echo
 	yay -Syyu --noconfirm # Update Arch
 tput setaf 6
 echo "################### "$1" Install - Done #############################"

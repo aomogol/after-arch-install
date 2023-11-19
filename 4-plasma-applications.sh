@@ -21,6 +21,7 @@ kdf
 ocs-url
 konsave
 systemd-kcm
+systemd-manager-git
 xorg-xwayland 
 xorg-xlsclients 
 qt5-wayland 

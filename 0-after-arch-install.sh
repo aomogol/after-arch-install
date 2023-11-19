@@ -29,10 +29,10 @@ sh 21-notebook*
 sh 22-othertools*
 sh 23-firmware*
 
-# sh tuxedo*
-# sh freshrss*
+sh tuxedo*
+sh freshrss*
 
-# sh personal-settings*
+sh personal-settings*
 # sh nvidia*
 
 
@@ -53,7 +53,6 @@ echo "Adding ubuntu keyserver"
 if ! grep -q "hkp://keyserver.ubuntu.com:80" /etc/pacman.d/gnupg/gpg.conf; then
 	echo 'keyserver hkp://keyserver.ubuntu.com:80' | sudo tee --append /etc/pacman.d/gnupg/gpg.conf
 fi
-
 
 echo "################################################################"
 echo "Setting environment variables"

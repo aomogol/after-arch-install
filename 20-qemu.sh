@@ -69,7 +69,11 @@ LC_ALL=C lscpu | grep Virtualization
 # grep -E --color=auto 'vmx|svm|0xc0f' /proc/cpuinfo
 lsmod | grep kvm
 
-echo -e "options kvm-intel nested=1" | sudo tee -a /etc/modprobe.d/kvm-intel.conf
+if ! grep -q "options kvm-intel nested=1" /etc/modprobe.d/kvm-intel.conf; then
+	echo 'options kvm-intel nested=1' | sudo tee -a /etc/modprobe.d/kvm-intel.conf
+fi
+
+# echo -e "options kvm-intel nested=1" | sudo tee -a /etc/modprobe.d/kvm-intel.conf
 
 sleep 5
 
@@ -81,7 +85,10 @@ sudo systemctl enable libvirtd.service
 sleep 5
 sudo systemctl start libvirtd.service
 
-echo 'nvram = ["/usr/share/ovmf/x64/OVMF_CODE.fd:/usr/share/ovmf/x64/OVMF_VARS.fd"]' | sudo tee --append /etc/libvirt/qemu.conf
+# if ! grep -q "nvram = ["/usr/share/ovmf/x64/OVMF_CODE.fd:/usr/share/ovmf/x64/OVMF_VARS.fd"]" /etc/libvirt/qemu.conf; then
+#	echo 'nvram = ["/usr/share/ovmf/x64/OVMF_CODE.fd:/usr/share/ovmf/x64/OVMF_VARS.fd"]' | sudo tee -a /etc/libvirt/qemu.conf
+# fi
+# echo 'nvram = ["/usr/share/ovmf/x64/OVMF_CODE.fd:/usr/share/ovmf/x64/OVMF_VARS.fd"]' | sudo tee --append /etc/libvirt/qemu.conf
 
 sudo virsh net-define /etc/libvirt/qemu/networks/default.xml
 sleep 5
