@@ -20,7 +20,7 @@ dosfstools
 fatresize 
 f2fs-tools 
 btrfs-progs
-exfat-utils 
+exfatprogs 
 nilfs-utils 
 udftools 
 mtools

@@ -15,6 +15,7 @@ echo
 list=(
 linux-headers
 dkms
+devtools
 )
 
 func_install() {

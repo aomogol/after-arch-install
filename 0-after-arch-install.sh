@@ -25,14 +25,14 @@ sh 16-video-photo-music*
 sh 17-social-IM*
 sh 19-docker*
 sh 20-qemu*
-sh 21-notebook*
+#sh 21-notebook*
 sh 22-othertools*
 sh 23-firmware*
 
-sh tuxedo*
-sh freshrss*
+#sh tuxedo*
+# sh freshrss*
 
-sh personal-settings*
+# sh personal-settings*
 # sh nvidia*
 
 
