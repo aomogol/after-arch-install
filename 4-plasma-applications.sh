@@ -12,14 +12,33 @@ tput sgr0
 echo
 
 list=(
+plasma-desktop
+plasma-nm 
+plasma-pa
+sddm-git
+sddm-kcm
+konsole
+kate
+kdeplasma-addons
+kde-gtk-config 
+breeze-gtk 
+powerdevil
 kdialog
+kcalc
+kcharselect
+kcolorchooser
+kdeconnect
 kdegraphics-thumbnailers
+kdesdk-thumbnailers
 kdenetwork-filesharing 
 kcron
 filelight 
 kdf 
 ocs-url
 konsave
+kontrast
+kmix
+kolourpaint
 systemd-kcm
 systemd-manager-git
 xorg-xwayland 
@@ -28,6 +47,15 @@ qt5-wayland
 glfw-wayland 
 plasma-wayland-session
 xorg-xhost 
+xdg-desktop-portal 
+xdg-desktop-portal-kde
+discover
+print-manager
+packagekit-qt5 
+ffmpegthumbs
+ark
+dolphin 
+dolphin-plugins 
 )
 
 #echo "################### XORG applications "
@@ -70,3 +98,9 @@ done
 #if [ ! -f /usr/share/xsessions/plasma.desktop ]; then
   #sudo pacman -S --noconfirm --needed qt5ct
 #fi
+
+sudo systemctl enable NetworkManager
+sudo systemctl enable sddm
+
+
+echo "################### Plasma related applications installed "
