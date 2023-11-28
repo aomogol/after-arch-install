@@ -20,11 +20,11 @@ polkit
 os-prober #detect other OSes
 grub-customizer
 update-grub
-etcher-bin 
+#etcher-bin 
 gnome-firmware
 gnome-disk-utility
 plasma-disks
-timeshift
+#timeshift
 )
 
 func_install() {

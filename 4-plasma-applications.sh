@@ -37,7 +37,6 @@ kdf
 ocs-url
 konsave
 kontrast
-kmix
 kolourpaint
 systemd-kcm
 systemd-manager-git
@@ -56,6 +55,7 @@ ffmpegthumbs
 ark
 dolphin 
 dolphin-plugins 
+#kmix
 )
 
 #echo "################### XORG applications "
