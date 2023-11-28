@@ -92,8 +92,8 @@ echo
 if [ -f /etc/environment ]; then
 	#		echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee /etc/environment
 	#		echo "QT_STYLE_OVERRIDE=kvantum" | sudo tee -a /etc/environment
-	echo "EDITOR=nano" | sudo tee -a /etc/environment
-	echo "BROWSER=thorium-browser" | sudo tee -a /etc/environment
+	#echo "EDITOR=nano" | sudo tee -a /etc/environment
+	#echo "BROWSER=thorium-browser" | sudo tee -a /etc/environment
 fi
 
 ####################################################################################

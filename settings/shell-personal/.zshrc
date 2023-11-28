@@ -249,5 +249,98 @@ alias mkinstall='makepkg -rsi --noconfirm'
 alias sr='sudo reboot'
 alias ssn='sudo shutdown now'
 
+# _____________________________________________________________________________
+
+############################################## alias from AOM
+alias u="yay -Syyu --noconfirm"
+alias hata="journalctl -p 3 -xb"
+alias mraom="sudo reflector --latest 10 --fastest 10 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist"
+alias kur="yay -S --noconfirm"
+alias kaldir="yay -Rdd"
+
+#Cleanup orphaned packages
+alias cls='sudo pacman -Rns $(pacman -Qtdq)'
+
+alias np='sudo nano /etc/pacman.conf'
+alias nm='sudo nano /etc/pacman.d/mirrorlist'
+
+#fix obvious typo's
+alias cd..='cd ..'
+
+alias po="sudo netstat -tulpn | grep LISTEN"
+alias po2="sudo ss -tulpn | grep LISTEN"
+alias sysctl="systemctl list-unit-files"
+alias sysfail="systemctl --state=failed --all"
+
+# # ex = EXtractor for all kinds of archives
+# # usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   unzstd $1    ;;
+      *)           echo ''$1' cannot be extracted via ex()' ;;
+    esac
+  else
+    echo ''$1' is not a valid file'
+  fi
+}
+
+function path(){
+    old=$IFS
+    IFS=:
+    printf "%s\n" $PATH
+    IFS=$old
+}
+
+alias n='neofetch'
+alias cpu1="sudo auto-cpufreq --stats"
+
+# git
+alias gs="git status"
+alias gcache="git config credential.helper store"
+
+gcom() {
+	git add .
+	git commit -m "$1"
+	}
+
+	lazyg() {
+	git add .
+	git commit -m "$1"
+	git push
+}
+
+# fonksiyonlar
+bulvesil (){
+		find . -type f -name ".DS_Store" -print -delete
+		find . -type f -name "._*" -print -delete
+		find . -type d -name ".@__thumb" -print -delete
+	}
+
+bosdirsil(){
+		find . -type d -empty -exec rmdir -v {} +
+}
+
+
+alias depo4="sudo mount -t cifs //192.168.1.85/aom /mnt/depo4 -o rw,file_mode=0777,dir_mode=0777,username=onder,password=Logom001,iocharset=utf8,vers=1.0"
+alias depo8="sudo mount -t nfs -o vers=3 192.168.1.87:/aom /mnt/depo8"
+# _____________________________________________________________________________
+
+
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

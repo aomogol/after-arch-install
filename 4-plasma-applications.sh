@@ -67,6 +67,6 @@ done
 
 
 
-if [ ! -f /usr/share/xsessions/plasma.desktop ]; then
+#if [ ! -f /usr/share/xsessions/plasma.desktop ]; then
   #sudo pacman -S --noconfirm --needed qt5ct
-fi
+#fi

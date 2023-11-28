@@ -24,11 +24,7 @@ etcher-bin
 gnome-firmware
 gnome-disk-utility
 plasma-disks
-timeshift-bin
-
-
-
-
+timeshift
 )
 
 func_install() {
