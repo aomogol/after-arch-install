@@ -26,6 +26,7 @@ udftools
 mtools
 ventoy-bin
 nfs-utils
+cifs-utils
 )
 
 func_install() {

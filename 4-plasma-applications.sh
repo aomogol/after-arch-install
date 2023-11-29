@@ -12,11 +12,13 @@ tput sgr0
 echo
 
 list=(
-plasma-desktop
-plasma-nm 
-plasma-pa
+plasma-meta
+#plasma-desktop
+#plasma-nm 
+#plasma-pa
 sddm-git
 sddm-kcm
+kscreen
 konsole
 kate
 kdeplasma-addons
@@ -28,6 +30,9 @@ kcalc
 kcharselect
 kcolorchooser
 kdeconnect
+#kde-graphics-meta
+gwenview
+svgpart
 kdegraphics-thumbnailers
 kdesdk-thumbnailers
 kdenetwork-filesharing 
@@ -38,6 +43,7 @@ ocs-url
 konsave
 kontrast
 kolourpaint
+kcm-polkit-kde-git
 systemd-kcm
 systemd-manager-git
 xorg-xwayland 
@@ -55,7 +61,9 @@ ffmpegthumbs
 ark
 dolphin 
 dolphin-plugins 
+ark 
 #kmix
+
 )
 
 #echo "################### XORG applications "
