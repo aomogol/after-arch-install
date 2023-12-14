@@ -18,11 +18,11 @@ visual-studio-code-bin
 meld 
 gedit
 thunderbird
-libreoffice 
-aspell-en 
-libmythes 
-mythes-en 
-languagetool
+#libreoffice 
+#aspell-en 
+#libmythes 
+#mythes-en 
+#languagetool
 onlyoffice
 )
 

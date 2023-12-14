@@ -16,7 +16,8 @@ plasma-meta
 #plasma-desktop
 #plasma-nm 
 #plasma-pa
-sddm-git
+sddm
+#sddm-git
 sddm-kcm
 kscreen
 konsole
@@ -43,7 +44,7 @@ ocs-url
 konsave
 kontrast
 kolourpaint
-kcm-polkit-kde-git
+#kcm-polkit-kde-git
 systemd-kcm
 systemd-manager-git
 xorg-xwayland 
