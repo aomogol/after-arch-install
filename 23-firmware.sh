@@ -6,56 +6,16 @@
 echo
 tput setaf 3
 echo "################################################################"
-echo "################### TUXEDO software install "
+echo "################### Firmware software install "
 echo "################################################################"
 tput sgr0
 echo
 
-list=(
-upd72020x-fw 
-wd719x-firmware 
-aic94xx-firmware 
-lshw 
-hw-probe 
-hwinfo 
-linux-firmware-qlogic
-)
-
-# tuxedo-keyboard-tools
-
-
-func_install() {
-	if pacman -Qi $1 &> /dev/null; then
-		tput setaf 2
-  		echo "###############################################################################"
-  		echo "################## The package "$1" is already installed"
-      	echo "###############################################################################"
-      	echo
-		tput sgr0
-	else
-    	tput setaf 3
-    	echo "###############################################################################"
-    	echo "##################  Installing package "  $1
-    	echo "###############################################################################"
-    	echo
-    	tput sgr0
-    #sudo pacman -S --noconfirm --needed $1
-		yay -S --noconfirm --needed $1
-    fi
-}
+yay -S --noconfirm --needed upd72020x-fw wd719x-firmware aic94xx-firmware lshw hw-probe hwinfo linux-firmware-qlogic
 
 ###############################################################################
 echo "Installation Complete"
 ###############################################################################
-count=0
-
-for name in "${list[@]}" ; do
-	count=$[count+1]
-	tput setaf 3;echo "Installing package nr.  "$count " " $name;tput sgr0;
-	func_install $name
-done
-
-
 
 echo "################### Logitech MX Mouse"
 # yay -S --noconfirm --needed logiops
