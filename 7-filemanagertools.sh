@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -e
+set -e
 #######################################################
 # Author    : Ahmet Önder Moğol
 #######################################################
@@ -29,7 +29,7 @@ trash-cli
 procs
 inxi
 bat 
-czkawka-gui-bin
+#czkawka-gui-bin
 eza
 the_platinum_searcher-bin
 duf

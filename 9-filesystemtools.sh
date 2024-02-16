@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -e
+set -e
 #######################################################
 # Author    : Ahmet Önder Moğol
 #######################################################
@@ -24,7 +24,7 @@ exfatprogs
 nilfs-utils 
 udftools 
 mtools
-ventoy-bin
+#ventoy-bin
 nfs-utils
 cifs-utils
 )

@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -e
+set -e
 #######################################################
 # Author    : Ahmet Önder Moğol
 #######################################################
@@ -16,6 +16,7 @@ thorium-browser-bin
 chromium
 google-chrome
 firefox
+floorp-bin
 brave-bin
 filezilla
 qbittorrent

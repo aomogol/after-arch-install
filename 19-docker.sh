@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -e
+set -e
 #######################################################
 # Author    : Ahmet Önder Moğol
 #######################################################
@@ -52,7 +52,7 @@ done
 
 
 echo "################### Docker "
-sudo groupadd docker
+#sudo groupadd docker
 #newgrp docker
 sudo usermod -aG docker $USER
 sudo systemctl enable docker.service

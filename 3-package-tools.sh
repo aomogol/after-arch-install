@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -e
+set -e
 #######################################################
 # Author    : Ahmet Önder Moğol
 #######################################################
@@ -52,14 +52,14 @@ done
 
 
 echo "################### Mirror List yenileme"
-# sudo reflector --latest 10  --fastest 10 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist
+sudo reflector --latest 10  --fastest 10 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist
 
 # rate- mirrors
-export TMPFILE="$(mktemp)"; \
-    sudo true; \
-    rate-mirrors --save=$TMPFILE arch --max-delay=43200 \
-      && sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
-      && sudo mv $TMPFILE /etc/pacman.d/mirrorlist
+# export TMPFILE="$(mktemp)"; \
+    # sudo true; \
+    # rate-mirrors --save=$TMPFILE arch --max-delay=43200 \
+#       && sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
+      # && sudo mv $TMPFILE /etc/pacman.d/mirrorlist
 
 echo
 tput setaf 3

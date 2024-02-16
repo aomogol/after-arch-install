@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -e
+set -e
 #######################################################
 # Author    : Ahmet Önder Moğol
 #######################################################
@@ -12,7 +12,7 @@ tput sgr0
 echo
 
 # iptables-nft kurmak için var ise iptables kaldırılmalı
-yay -Rdd iptables --noconfirm
+#yay -Rdd iptables --noconfirm
 
 list=(
 iptables-nft

@@ -1,6 +1,6 @@
 #!/usr/bin/bash
+set -e
 
-#set -e
 echo "#################################"
 echo "#   Fixing Pacman Databases..   #"
 echo "#################################"
