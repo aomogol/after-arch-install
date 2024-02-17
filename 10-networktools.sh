@@ -22,6 +22,7 @@ warpinator
 nss-mdns
 networkmanager-openvpn  
 bind 
+dnsdiag
 )
 #ipscan-bin
 

@@ -27,6 +27,7 @@ mtools
 #ventoy-bin
 nfs-utils
 cifs-utils
+zfs-utils
 )
 
 func_install() {
