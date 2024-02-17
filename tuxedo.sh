@@ -3,9 +3,7 @@ set -e
 #######################################################
 # Author    : Ahmet Önder Moğol
 #######################################################
-## 
 ## Monster Notebook için denendi
-
 echo
 tput setaf 3
 echo "################################################################"
@@ -16,11 +14,8 @@ echo
 
 list=(
 tuxedo-control-center-bin 
-
 )
-
 # tuxedo-keyboard-tools
-
 
 func_install() {
 	if pacman -Qi $1 &> /dev/null; then

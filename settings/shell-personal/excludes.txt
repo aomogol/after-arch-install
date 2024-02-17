@@ -10,7 +10,7 @@
 #    rsync -aP --exclude-from=rsync-homedir-excludes.txt /home/$USER/ /media/$USER/linuxbackup/home/$USER/
 
 ## grsync advance options:
-## --exclude-from="/home/aom/excludes.txt"
+## --exclude-from="/home/$USER/excludes.txt"
 
 ###############################################
 # directories, probably not worth a backup    #

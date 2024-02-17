@@ -33,7 +33,7 @@ sh personal-settings*
 
 sh 21-notebook*
 # sh nvidia*
-# sh tuxedo*
+sh tuxedo*
 # sh freshrss*
 
 
