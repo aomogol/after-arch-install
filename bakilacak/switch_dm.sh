@@ -37,12 +37,12 @@ case $CHOICE in
 	  echo
 	  echo "Removing Current Display Manager"
       echo "################################"
-      sudo pacman -Rdd --noconfirm sddm &>/dev/null; sudo pacman -Rdd --noconfirm sddm-git &>/dev/null; sudo pacman -Rdd --noconfirm sddm-git &>/dev/null; sudo pacman -Rdd --noconfirm sddm-kcm &>/dev/null; sudo pacman -Rdd --noconfirm gdm &>/dev/null
+      yay -S --needed --noconfirm sddm &>/dev/null; sudo pacman -Rdd --noconfirm sddm-git &>/dev/null; sudo pacman -Rdd --noconfirm sddm-git &>/dev/null; sudo pacman -Rdd --noconfirm sddm-kcm &>/dev/null; sudo pacman -Rdd --noconfirm gdm &>/dev/null
 	  sleep 2
 	  echo
 	  echo "Installing & Enabling LightDM"
       echo "#############################"
-      sudo pacman -S --needed --noconfirm lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+      yay -S --needed --noconfirm lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
       sleep 2
 
       sudo systemctl enable lightdm.service -f
@@ -68,7 +68,7 @@ case $CHOICE in
 	  echo "Installing & Enabling SDDM"
       echo "##########################"
       yay -S sddm-git --noconfirm
-      sudo pacman -S sddm-kcm --needed --noconfirm
+      yay -S --needed --noconfirm sddm-kcm 
       sleep 2
       sudo systemctl enable sddm.service -f
       echo
@@ -92,7 +92,7 @@ case $CHOICE in
 	  echo
 	  echo "Installing & Enabling GDM"
       echo "#########################"
-      sudo pacman -S --needed --noconfirm gdm
+      yay -S --needed --noconfirm gdm
       sleep 2
       sudo systemctl enable gdm.service -f
       echo

@@ -34,7 +34,7 @@ case $CHOICE in
       echo "         Adding/Enabling Firewalld         "
       echo "###########################################"
 			sleep 3
-			sudo pacman -S --noconfirm plasma-firewall firewalld
+			yay -S --needed --noconfirm plasma-firewall firewalld
 			sudo systemctl enable --now firewalld
 			sleep 3
       echo "###########################################"
@@ -49,7 +49,7 @@ case $CHOICE in
       echo "       Installing Firewall for Gnome        "
       echo "############################################"
 			sleep 3
-			sudo pacman -S --noconfirm gufw ufw
+			yay -S --needed --noconfirm  gufw ufw
 			sleep 3
       echo "###############################################"
       echo "  Done ! Configure Firewall From The Gufw App  "
@@ -63,7 +63,7 @@ case $CHOICE in
       echo "      Installing Firewall for XFCE      "
       echo "########################################"
 			sleep 3
-			sudo pacman -S --noconfirm firejail firetools
+			yay -S --needed --noconfirm firejail firetools
 			sleep 3
       echo "###############################################"
       echo "  Done ! Configure Firewall From FireJail App  "

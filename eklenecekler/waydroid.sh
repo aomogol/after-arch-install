@@ -3,6 +3,11 @@ set -e
 #######################################################
 # Author    : Ahmet Önder Moğol
 #######################################################
+
+## 
+## https://forum.garudalinux.org/t/ultimate-guide-to-install-waydroid-in-any-arch-based-distro-especially-garuda/15902
+
+
 echo
 tput setaf 3
 echo "################################################################"
@@ -12,20 +17,12 @@ tput sgr0
 echo
 
 list=(
-kdeconnect
-gvfs
-gvfs-smb
-samba
-avahi
-traceroute
-warpinator
-nss-mdns
-networkmanager-openvpn  
-bind 
-dnsdiag
-netplan
+linux-headers
+binder_linux-dkms
+waydroid
+waydroid-image-gapps
+
 )
-#ipscan-bin
 
 func_install() {
 	if pacman -Qi $1 &> /dev/null; then
@@ -42,13 +39,12 @@ func_install() {
     	echo "###############################################################################"
     	echo
     	tput sgr0
-		#sudo pacman -S --noconfirm --needed $1
 		yay -S --needed --noconfirm $1
     fi
 }
 
 ###############################################################################
-echo "Installation "
+echo "Installation Complete "
 ###############################################################################
 count=0
 
@@ -58,5 +54,23 @@ for name in "${list[@]}" ; do
 	func_install $name
 done
 
-### AVAHI service enable
-sudo systemctl enable avahi-daemon.service
+
+
+sudo modprobe -a binder_linux
+sudo systemctl enable --now waydroid-container
+sudo waydroid init -s GAPPS -f
+# sudo waydroid init -s GAPPS
+
+
+## Uygulama kurmak için
+## waydroid app install $path_to_apk
+
+## Bak incele
+## https://github.com/casualsnek/waydroid_script
+
+# sudo pacman -S waydroid-script-git
+
+
+## To upgrade Waydroid images, run:
+## sudo waydroid upgrade
+

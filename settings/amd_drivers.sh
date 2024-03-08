@@ -64,7 +64,7 @@ case $CHOICE in
       echo "     Installing AMD GPU Free Drivers      "
       echo "##########################################"
 			sleep 3
-			sudo pacman -S --noconfirm xf86-video-amdgpu libvdpau-va-gl vulkan-swrast libva-vdpau-driver libclc vulkan-radeon lib32-vulkan-radeon lib32-amdvlk amdvlk vulkan-icd-loader lib32-vulkan-icd-loader egl-wayland
+			yay -S --needed --noconfirm xf86-video-amdgpu libvdpau-va-gl vulkan-swrast libva-vdpau-driver libclc vulkan-radeon lib32-vulkan-radeon lib32-amdvlk amdvlk vulkan-icd-loader lib32-vulkan-icd-loader egl-wayland
 			sudo mkinitcpio -P
 			sleep 3
       echo "#######################################"
@@ -79,7 +79,7 @@ case $CHOICE in
       echo "     Installing ATI GPU Free Drivers      "
       echo "##########################################"
 			sleep 3
-			sudo pacman -S --noconfirm xf86-video-ati vulkan-radeon lib32-vulkan-radeon libvdpau-va-gl vulkan-swrast libva-vdpau-driver libclc
+			yay -S --needed --noconfirm xf86-video-ati vulkan-radeon lib32-vulkan-radeon libvdpau-va-gl vulkan-swrast libva-vdpau-driver libclc
 			sudo mkinitcpio -P
 			sleep 3
       echo "#######################################"
