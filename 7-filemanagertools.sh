@@ -33,6 +33,7 @@ bat
 eza
 the_platinum_searcher-bin
 duf
+syncthing
 )
 #the_platinum_searcher-bin
 # egrep fgrep
@@ -75,3 +76,6 @@ done
 if [ ! -f /usr/bin/duf ]; then
   yay -S --needed --noconfirm duf
 fi
+
+# Syncthing service
+sudo systemctl enable --now syncthing@aom.service
