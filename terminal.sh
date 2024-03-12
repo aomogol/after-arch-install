@@ -1,5 +1,4 @@
-a
-       #!/bin/bash
+#!/bin/bash
 set -e
 #######################################################
 # Author    : Ahmet Önder Moğol
@@ -13,19 +12,11 @@ tput sgr0
 echo
 
 list=(
-bash-completion
-partitionmanager
-gparted 
-gpart 
-polkit
-os-prober #detect other OSes
-grub-customizer
-update-grub
-#etcher-bin 
-gnome-firmware
-gnome-disk-utility
-plasma-disks
-#timeshift
+konsole
+terminator
+terminus-font
+starship
+zoxide
 )
 
 func_install() {
@@ -49,7 +40,7 @@ func_install() {
 }
 
 ###############################################################################
-echo "Installation Complete"
+echo "Installation Complete "
 ###############################################################################
 count=0
 
@@ -61,27 +52,3 @@ done
 
 
 
-
-#echo "################### bash utilities"
-# yay -S --needed --noconfirm bash-completion
-# yay -S --needed --noconfirm zsh
-# yay -S --needed --noconfirm oh-my-zsh-git
-# yay -S --needed --noconfirm zsh-completions
-# yay -S --needed --noconfirm zsh-syntax-highlighting
-# yay -S --needed --noconfirm zsh-autosuggestions
-
-#echo "################### disk utility"
-#yay -S --needed --noconfirm partitionmanager 
-#yay -S --needed --noconfirm gparted gpart polkit
-##yay -S --needed --noconfirm os-prober #detect other OSes
-#yay -S --needed --noconfirm grub-customizer
-#yay -S --needed --noconfirm update-grub
-#yay -S --needed --noconfirm etcher-bin 
-#yay -S --needed --noconfirm gnome-firmware
-#yay -S --needed --noconfirm gnome-disk-utility
-#yay -S --needed --noconfirm plasma-disks
-
-#echo "################### Backup utility"
-#yay -S --needed --noconfirm timeshift-bin
-
-#yay -S --needed --noconfirm borg borgmatic vorta

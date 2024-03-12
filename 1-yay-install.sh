@@ -14,6 +14,7 @@ echo
 echo
 list=(
 yay-bin
+
 )
 
 func_install() {
