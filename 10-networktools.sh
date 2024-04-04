@@ -24,7 +24,7 @@ networkmanager-openvpn
 bind 
 dnsdiag
 netplan
-localsend 
+localsend-bin
 )
 #ipscan-bin
 
